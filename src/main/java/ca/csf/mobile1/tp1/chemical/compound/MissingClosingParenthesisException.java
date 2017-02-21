@@ -6,5 +6,5 @@ package ca.csf.mobile1.tp1.chemical.compound;
 
 public class MissingClosingParenthesisException extends Exception
 {
-    MissingClosingParenthesisException(String message){super(message);}
+    MissingClosingParenthesisException(){super();}
 }

@@ -6,5 +6,5 @@ package ca.csf.mobile1.tp1.chemical.compound;
 
 public class MisplacedExponentException extends Exception
 {
-    MisplacedExponentException(String message){super(message);}
+    MisplacedExponentException(){super();}
 }

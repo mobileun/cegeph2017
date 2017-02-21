@@ -6,5 +6,12 @@ package ca.csf.mobile1.tp1.chemical.compound;
 
 public class UnknownChemicalElementException extends Exception
 {
+
+
     UnknownChemicalElementException(String message){super(message);}
+
+    public String getElement()
+    {
+        return this.getMessage();
+    }
 }

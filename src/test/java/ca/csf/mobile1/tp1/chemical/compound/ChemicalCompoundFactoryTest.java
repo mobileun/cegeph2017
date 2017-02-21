@@ -1,11 +1,11 @@
 package ca.csf.mobile1.tp1.chemical.compound;
 
-import ca.csf.mobile1.tp1.chemical.element.ChemicalElementFactory;
-import ca.csf.mobile1.tp1.chemical.element.ChemicalElementRepository;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+
+import ca.csf.mobile1.tp1.chemical.element.ChemicalElementRepository;
 
 import static org.junit.Assert.assertEquals;
 

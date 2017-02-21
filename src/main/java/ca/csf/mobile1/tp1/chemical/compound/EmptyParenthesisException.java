@@ -6,5 +6,5 @@ package ca.csf.mobile1.tp1.chemical.compound;
 
 public class EmptyParenthesisException extends Exception
 {
-    EmptyParenthesisException(String message){super(message);}
+    EmptyParenthesisException(){super();}
 }

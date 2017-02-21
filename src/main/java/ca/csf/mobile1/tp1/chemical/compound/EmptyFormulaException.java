@@ -6,5 +6,5 @@ package ca.csf.mobile1.tp1.chemical.compound;
 
 public class EmptyFormulaException extends Exception
 {
-    EmptyFormulaException(String message){super(message);}
+    EmptyFormulaException(){super();}
 }

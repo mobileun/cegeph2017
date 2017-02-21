@@ -6,5 +6,11 @@ package ca.csf.mobile1.tp1.chemical.compound;
 
 public class IllegalCharacterException extends Exception
 {
-    IllegalCharacterException(String message){super(message);}
+    private Character character;
+    IllegalCharacterException(Character character){super(character.toString());}
+
+    public String getCharacter()
+    {
+        return this.getMessage();
+    }
 }
