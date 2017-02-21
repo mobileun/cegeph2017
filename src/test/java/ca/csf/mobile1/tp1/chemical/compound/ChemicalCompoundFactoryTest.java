@@ -3,7 +3,10 @@ package ca.csf.mobile1.tp1.chemical.compound;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 import ca.csf.mobile1.tp1.chemical.element.ChemicalElementRepository;
 
@@ -17,6 +20,20 @@ public class ChemicalCompoundFactoryTest {
     @Before
     public void before() throws IOException {
         //TODO : Lire le fichier "chemicalElementsForTests.txt", obtenir tous les composés chimiques, et les placer dans chemicalElementRepository
+
+        InputStream inputStream = ClassLoader.getSystemResourceAsStream("chemicalElementsForTests.txt");
+        BufferedReader reader  = new BufferedReader(new InputStreamReader(inputStream));
+        String currentLine;
+        String[] currentlineSplitted;
+        while((currentLine = reader.readLine())!=null)
+        {
+            currentlineSplitted = currentLine.split(",");
+
+
+        }
+
+        reader.close();
+        inputStream.close();
         chemicalCompoundFactory = new ChemicalCompoundFactory(chemicalElementRepository);
     }
 
