@@ -4,10 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 
+import ca.csf.mobile1.tp1.chemical.element.ChemicalElement;
 import ca.csf.mobile1.tp1.chemical.element.ChemicalElementRepository;
 
 import static org.junit.Assert.assertEquals;
@@ -20,20 +20,28 @@ public class ChemicalCompoundFactoryTest {
     @Before
     public void before() throws IOException {
         //TODO : Lire le fichier "chemicalElementsForTests.txt", obtenir tous les composés chimiques, et les placer dans chemicalElementRepository
+        // Ne fonctionne pas avec ClassLoader et après 2h00 d'essayer d'ouvrir le fichier.....
+        // J'ai utilisé le full path
+        chemicalElementRepository = new ChemicalElementRepository();
+        try {
 
-        InputStream inputStream = ClassLoader.getSystemResourceAsStream("chemicalElementsForTests.txt");
-        BufferedReader reader  = new BufferedReader(new InputStreamReader(inputStream));
-        String currentLine;
-        String[] currentlineSplitted;
-        while((currentLine = reader.readLine())!=null)
-        {
-            currentlineSplitted = currentLine.split(",");
+                   BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\Fredgag\\Documents\\Moile1\\Enonce_Travail_Pratique_1_-_Remise_1\\Tp1-Core\\src\\test\\resources\\chemicalElementsForTests.txt"));
+
+                   String currentLine;
+
+            while((currentLine = reader.readLine()) != null)
+            {
+                String[] currentlineSplitted = currentLine.split(",");
+                chemicalElementRepository.add(new ChemicalElement(currentlineSplitted[0],currentlineSplitted[1],Integer.parseInt(currentlineSplitted[2]),Double.parseDouble(currentlineSplitted[3])));
+            }
+                  reader.close();
+           }
+            catch (Exception err)
+            {
+                err.getMessage();
+            }
 
 
-        }
-
-        reader.close();
-        inputStream.close();
         chemicalCompoundFactory = new ChemicalCompoundFactory(chemicalElementRepository);
     }
 
